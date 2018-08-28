@@ -18,7 +18,7 @@ namespace Web_Print_RDLC
                 ReportViewer1.ProcessingMode = ProcessingMode.Local;
                 ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/Report1.rdlc");
                 Customers dsCustomers = GetData();
-                ReportDataSource datasource = new ReportDataSource("Customers", dsCustomers.Tables[0]);
+                ReportDataSource datasource = new ReportDataSource("Tabla1", dsCustomers.Tables[0]);
                 ReportViewer1.LocalReport.DataSources.Clear();
                 ReportViewer1.LocalReport.DataSources.Add(datasource);
             }
