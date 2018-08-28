@@ -1,6 +1,7 @@
 ﻿using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,7 +16,7 @@ namespace Web_Print_RDLC
             if (!this.IsPostBack)
             {
                 ReportViewer1.ProcessingMode = ProcessingMode.Local;
-                ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/Report.rdlc");
+                ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/Report1.rdlc");
                 Customers dsCustomers = GetData();
                 ReportDataSource datasource = new ReportDataSource("Customers", dsCustomers.Tables[0]);
                 ReportViewer1.LocalReport.DataSources.Clear();
@@ -26,7 +27,7 @@ namespace Web_Print_RDLC
         {
             using (Customers dsCustomers = new Customers())
             {
-                DataTable dt = dsCustomers.Tables["DataTable1"];
+                DataTable dt = dsCustomers.Tables["Data1"];
                 dt.Rows.Add("ALFKI", "Maria", "Boise", "Germany");
                 dt.Rows.Add("ANATR", "Ana Trujillo", "México D.F.", "Mexico");
                 dt.Rows.Add("ANTON", "Antonio Moreno", "Montréal", "Mexico");
